@@ -25,7 +25,15 @@ After selecting the range of the data, it can be downloaded to a CSV file throug
 
 <b>NOTE</b>: This project uses jupyter notebook so a yahoo finance package can also be used to import this data directly to the jupyter notebook. However, I did want to make sure there was a file in this repository that could be used to replicate the outcome of this project.
 
+## Understanding the Data (EDA)
 
+## The Modeling Process
+
+## The Evaluation Process
+
+## The Results
+
+## The Conclusion
 
 # Resources
 [Stock market forecasting using Time Series analysis With ARIMA model](https://www.analyticsvidhya.com/blog/2021/07/stock-market-forecasting-using-time-series-analysis-with-arima-model/)
