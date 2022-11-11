@@ -80,3 +80,5 @@ The ACF plot shows that there's no clear moving averages that need to be modeled
 [How to calculate stock returns in Python](https://www.codingfinance.com/post/2018-04-03-calc-returns-py/)
 
 [How to Calculate the Daily Returns And Volatility of a Stock with Python](https://blog.devgenius.io/how-to-calculate-the-daily-returns-and-volatility-of-a-stock-with-python-d4e1de53e53b)
+
+[Stock Price Prediction & Forecasting with LSTM Neural Networks in Python](https://www.youtube.com/watch?v=CbTU92pbDKw&list=WL&index=2)
