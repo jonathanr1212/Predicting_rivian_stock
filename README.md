@@ -69,10 +69,38 @@ The ACF and PACF plots also helped determine what our model's AR and MA values s
 The ACF plot shows that there's no clear moving averages that need to be modeled and the PACF plot shows that our auto regressive term should be 1.
 
 ## The Modeling Process
+There were few types of models used in this notebook. There was an I model (Random Walk), ARI (AR + I terms) and an AutoARIMA model. The I model was used as the baseline model to compare against. The ARI model used the recommendations interpreted based on the ACF and PACF plots. Each model was able to get produced using the SARIMAX module. The AutoARIMA model produced a result that utilized the full SARIMAX model.
 
+Two methods of LSTM models were used. The first method included using a windowed dataframe based on the amount of days chosen by the person running the model (in this case 30 days). Based on the windowed dataframe, the LSTM model made prediction both recursively and against the validation and test sets. The second method used a regular train test split and did not include a validation set inside of the LSTM model. The model made predictions both recursively and against the test set. Both methods used almost the same structure as the first iteration had an LSTM input layer, 3 dense layers and included a 0.2 dropout. The second iteration had an LSTM input layer, 3 dense layers with no dropout. What fundamentally different were the shapes added to the input layer.
 ## The Results
+These were the results for the following models:
+
+### <b>I model (Random Walk)</b>
+![](images/i.png)
+
+
+### <b>ARI model (Auto-Regressive with differencing)</b>
+![](images/ari.png)
+
+### <b>Auto ARIMA model (SARIMAX)</b>
+![](images/autoarima.png)
+
+### <b>LSTM Method 1 (Best out of 2 models)</b>
+![](images/lstm1.png)
+
+### <b>LSTM Method 2 (Best out of 2 models)</b>
+![](images/lstm2.png)
+
 
 ## The Conclusion
+
+The way the models were evaluated was a bit unique as I tried predict to months into the future using a method in which the model will continue to predict again unknown values. It would use it's own predicted values as a real value while try to predict the next day's value. The test set should have acted as a way to evaluate the models against values it may not have known yet but it was much more interesting the see the forecasting ability of the model assuming there were no true values to test against.
+
+The best performing model out of all of the models was the AutoARIMA model. It was the closest in the recursive test to the value.
+
+The LSTM method 2 model was a close second.
+
+ NOTE: all models performed decently for the next day performance but as it tried to predict farther into the future, all of the models ended up leveling out into just one price and could not predict well into the future.
 
 # Resources
 [Stock market forecasting using Time Series analysis With ARIMA model](https://www.analyticsvidhya.com/blog/2021/07/stock-market-forecasting-using-time-series-analysis-with-arima-model/)
@@ -82,3 +110,16 @@ The ACF plot shows that there's no clear moving averages that need to be modeled
 [How to Calculate the Daily Returns And Volatility of a Stock with Python](https://blog.devgenius.io/how-to-calculate-the-daily-returns-and-volatility-of-a-stock-with-python-d4e1de53e53b)
 
 [Stock Price Prediction & Forecasting with LSTM Neural Networks in Python](https://www.youtube.com/watch?v=CbTU92pbDKw&list=WL&index=2)
+
+[Stock Price Prediction Using Python | Machine Learning | LSTM](https://www.youtube.com/watch?v=mEx8XOYsjXo)
+
+## Repository Structure
+
+```
+├── data
+├── images
+├── .gitignore
+├── README.md
+├── environment.yml
+└── stock_predict_nb.ipynb
+```
